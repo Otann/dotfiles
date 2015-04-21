@@ -1,0 +1,6 @@
+SBT_OPTS=" \
+-XX:+CMSClassUnloadingEnabled \
+-XX:MaxPermSize=256M \
+-server -Xdebug -Xmx512M \
+"
+#-agentpath:/Users/otann/Downloads/YourKit_Java_Profiler_2013_build_13074.app/bin/mac/libyjpagent.jnilib
