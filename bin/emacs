@@ -14,7 +14,7 @@ for my $f (@ARGV) {
  
 system("touch $args") if ($tmpfiles);
  
-system("open -a /usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.7/Emacs.app $args");
+system("open -a /usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.10/Emacs.app $args");
  
 # delay deletion because AE drag&drop doesn't work with non-existing documents
 system("(sleep 3; rm $tmpfiles) &") if ($tmpfiles);

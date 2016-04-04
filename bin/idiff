@@ -1,0 +1,5 @@
+#!/bin/bash
+idea='/Applications/IntelliJ IDEA 10.app/Contents/MacOS/idea'
+left=`abspath $1`
+right=`abspath $2`
+"$idea" diff $left $right
