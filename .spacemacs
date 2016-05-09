@@ -23,14 +23,28 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
      auto-completion
      better-defaults
      emacs-lisp
+     osx
+;     smex
+
      git
      markdown
-     osx
-     clojure
+     dockerfile
+     ansible
+
+     go
      scala
+     java
+     javascript
+     python
+     swift
+     yaml
+     (clojure :variables
+              clojure-enable-fancify-symbols nil)
+
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -38,6 +52,7 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     emoji                       ; browse and insert emoji :codes:
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -98,15 +113,10 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(
-                         ;spacemacs-dark
-                         ;spacemacs-light
-                         solarized-light
+   dotspacemacs-themes '(solarized-light
                          solarized-dark
-                         ;leuven
-                         ;monokai
-                         ;zenburn
-                         )
+                         spacemacs-dark
+                         spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -165,7 +175,7 @@ values."
    dotspacemacs-helm-resize nil
    ;; if non nil, the helm header is hidden when there is only one source.
    ;; (default nil)
-   dotspacemacs-helm-no-header nil
+   dotspacemacs-helm-no-header t
    ;; define the position to display `helm', options are `bottom', `top',
    ;; `left', or `right'. (default 'bottom)
    dotspacemacs-helm-position 'bottom
