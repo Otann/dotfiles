@@ -28,6 +28,10 @@ source $ZSH/oh-my-zsh.sh
 
 # added local bin
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/otann/bin"
+export PATH="/Users/otann/Library/Python/2.7/bin:$PATH"
+
+
+
 
 # HOMES
 JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
@@ -52,6 +56,10 @@ alias hgrep="history | grep"
 
 #alias usenode='brew unlink iojs && brew link node && echo Updating NPM && npm install -g npm@latest && echo Using Node.js'
 #alias useio='brew unlink node && brew link --force iojs && echo Updating NPM && npm install -g npm@latest && echo Using io.js'
+
+alias emacs="/usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.17/bin/emacs"
+alias ec="/usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.17/bin/emacsclient"
+
 
 ##
 ## Paths for tools
@@ -81,14 +89,11 @@ PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb:$PATH"
 export ANSIBLE_HOSTS=/Users/otann/Dev/tools/ansible
 
 # docker-machine env
-eval "$(docker-machine env default)"
+#eval "$(docker-machine env default)"
 
 # NVM required things
 export NVM_DIR=$(brew --prefix)/var/nvm
 source $(brew --prefix nvm)/nvm.sh
-
-# added by Anaconda2 2.4.1 installer (copied from .bash_profile)
-export PATH="/Users/otann/anaconda/bin:$PATH"
 
 ##
 ## Local MacWookie Theme
@@ -103,6 +108,11 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=" "
+
+POWERLINE_PATH=$(which powerline)
+if [ -x "$POWERLINE_PATH" ] ; then
+  . "/Users/otann/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh"
+fi
 
 # fix tmux window rename
 #export DISABLE_AUTO_TITLE="true"
@@ -120,3 +130,6 @@ source '/Users/otann/Dev/tools/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/Users/otann/Dev/tools/google-cloud-sdk/completion.zsh.inc'
+
+
+

@@ -1,16 +1,28 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" go hardcore
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
 " highlighting
-"set relativenumber
+" set relativenumber
 syntax on
-set background=light
-"set cursorline
+set cursorline
 
 " tabbing
-set expandtab
-set shiftwidth=2
-set softtabstop=2
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set expandtab                   " use spaces, not tabs (optional)
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
+"" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
 
 " folding settings
 set foldmethod=indent
@@ -18,6 +30,7 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
+"" VUNDELBAR starts here
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -32,5 +45,7 @@ Plugin 'kien/ctrlp.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"colorscheme solarized
-let g:solarized_termcolors=256
+let g:solarized_visibility="low"
+"let g:solarized_termcolors=257
+set background=dark
+colorscheme solarized
