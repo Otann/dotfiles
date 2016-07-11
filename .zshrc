@@ -108,6 +108,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=" "
 
 if [ -x "$(which powerline)" ] ; then
+  powerline-daemon -q
   . "$HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh"
 fi
 
