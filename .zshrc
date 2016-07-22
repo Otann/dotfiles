@@ -19,7 +19,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github osx brew pod python pip knife scala sbt chef ssh-agent)
+plugins=(git github osx brew python pip scala sbt ssh-agent docker go golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -126,3 +126,5 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 # The next line enables shell command completion for gcloud.
 #source '/Users/otann/Dev/tools/google-cloud-sdk/completion.zsh.inc'
 
+# This enables fzf for zsh, see https://github.com/junegunn/fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
