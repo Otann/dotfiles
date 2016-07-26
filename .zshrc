@@ -40,6 +40,7 @@ alias hgrep="history | grep"
 alias emacs="/usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.17/bin/emacs"
 alias ec="/usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.17/bin/emacsclient"
 
+alias gt="gittower ."
 
 ##
 ## Paths for tools
