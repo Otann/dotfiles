@@ -3,10 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 DEFAULT_USER="anton"
-ZSH_THEME="gallois"
-
-# Example aliases
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+ZSH_THEME="agnoster"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -92,15 +89,24 @@ fi
 
 # Docker tools
 # docker-machine env
-#eval "$(docker-machine env default)"
+if [ -x "$(which docker-machine)" ] ; then
+  eval "$(docker-machine env default)"
+fi
+
+# rbenv tooling
+if [ -x "$(which rbenv)" ] ; then
+  eval "$(rbenv init -)"
+  export LATEST_RUBY=$(rbenv install --list | grep ' \d\.\d\.\d$' | tail -1 | xargs)
+  rbenv global $LATEST_RUBY
+fi
 
 ##
 ## Local MacWookie Theme
 ##
 
 local ret_status="%(?:%{$fg_bold[yellow]%}$ :%{$fg_bold[red]%}$ %s)%{$reset_color%}"
-PROMPT='${ret_status}%{$fg_bold[yellow]%}%2~ $(git_prompt_info)%{$reset_color%}'
-RPROMPT=''
+#PROMPT='${ret_status}%{$fg_bold[yellow]%}%2~ $(git_prompt_info)%{$reset_color%}'
+#RPROMPT=''
 #RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%} %T'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
@@ -109,7 +115,8 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=" "
 
 if [ -x "$(which powerline)" ] ; then
-  powerline-daemon -q
+#  powerline-daemon -k
+#  powerline-daemon -q
   . "$HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh"
 fi
 

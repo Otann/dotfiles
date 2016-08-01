@@ -23,7 +23,10 @@
             {
                 "function": "powerline.segments.common.vcs.branch",
                 "priority": 40,
-                "args": {"status_colors": true}
+                "args": {
+                  "status_colors": true,
+                  "ignore_statuses": ["U"]
+                }
             },
             {
                 "function": "powerline.segments.shell.last_pipe_status",
