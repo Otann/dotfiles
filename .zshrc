@@ -44,7 +44,8 @@ alias gt="gittower ."
 ##
 
 # added local bin
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
 
@@ -60,19 +61,21 @@ export JAVA_OPTS="-Xmx${JAVA_RAM} -XX:MaxPermSize=${PERM_SIZE} -Xms512M"
 export MAVEN_OPTS="-Xmx${JAVA_RAM} -XX:MaxPermSize=${PERM_SIZE} -Xss512M"
 export MAVEN_OPTS_LOAD="-Xmx4G -XX:MaxPermSize=1G -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=18080 -Dcom.sun.management.jmxremote.authenticate=false -Djava.net.preferIPv4Stack=true"
 
+# Zalando STUPS stuff
+export CREDENTIALS_DIR="~/.berry/catalog"
 
-# GPG stuff
-export GPG_AGENT_INFO_FILE=$HOME/.gpg-agent-info
-if [ -x "$(which gpg-agent)" ] ; then
-  gpg-agent --daemon --enable-ssh-support --write-env-file "${GPG_AGENT_INFO_FILE}"
-fi
-if [ -f "${GPG_AGENT_INFO_FILE}" ]; then
- . "${GPG_AGENT_INFO_FILE}"
- export GPG_AGENT_INFO
- export SSH_AUTH_SOCK
- export SSH_AGENT_PID
-fi
-export GPG_TTY=$(tty)
+## GPG stuff
+#export GPG_AGENT_INFO_FILE=$HOME/.gpg-agent-info
+#if [ -x "$(which gpg-agent)" ] ; then
+#  gpg-agent --daemon --enable-ssh-support --write-env-file "${GPG_AGENT_INFO_FILE}"
+#fi
+#if [ -f "${GPG_AGENT_INFO_FILE}" ]; then
+# . "${GPG_AGENT_INFO_FILE}"
+# export GPG_AGENT_INFO
+# export SSH_AUTH_SOCK
+# export SSH_AGENT_PID
+#fi
+#export GPG_TTY=$(tty)
 
 # Heroku toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -82,43 +85,37 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ##
 
 # the fuck thing
-if [ -x "$(which thefuck)" ] ; then
-  eval $(thefuck --alias)
-fi
+#if [ -x "$(which thefuck)" ] ; then
+#  eval $(thefuck --alias)
+#fi
 
 
 # Docker tools
 # docker-machine env
-if [ -x "$(which docker-machine)" ] ; then
-  eval "$(docker-machine env default)"
-fi
+#if [ -x "$(which docker-machine)" ] ; then
+#  eval "$(docker-machine env default)"
+#fi
 
 # rbenv tooling
-if [ -x "$(which rbenv)" ] ; then
-  eval "$(rbenv init -)"
-  export LATEST_RUBY=$(rbenv install --list | grep ' \d\.\d\.\d$' | tail -1 | xargs)
-  rbenv global $LATEST_RUBY
-fi
+#if [ -x "$(which rbenv)" ] ; then
+#  eval "$(rbenv init -)"
+#  export LATEST_RUBY=$(rbenv install --list | grep ' \d\.\d\.\d$' | tail -1 | xargs)
+#  rbenv global $LATEST_RUBY
+#fi
 
 ##
 ## Local MacWookie Theme
 ##
 
 local ret_status="%(?:%{$fg_bold[yellow]%}$ :%{$fg_bold[red]%}$ %s)%{$reset_color%}"
-#PROMPT='${ret_status}%{$fg_bold[yellow]%}%2~ $(git_prompt_info)%{$reset_color%}'
-#RPROMPT=''
+PROMPT='${ret_status}%{$fg_bold[yellow]%}%2~ $(git_prompt_info)%{$reset_color%}'
+RPROMPT=''
 #RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%} %T'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=" "
-
-if [ -x "$(which powerline)" ] ; then
-#  powerline-daemon -k
-#  powerline-daemon -q
-  . "$HOME/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh"
-fi
 
 # fix tmux window rename
 #export DISABLE_AUTO_TITLE="true"
