@@ -38,6 +38,8 @@ alias emacs="/usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.17/bin/emacs"
 alias ec="/usr/local/Cellar/emacs-mac/emacs-24.5-z-mac-5.17/bin/emacsclient"
 
 alias gt="gittower ."
+alias git-home-on="mv ~/.git_ ~/.git"
+alias git-home-off="mv ~/.git ~/.git_"
 
 ##
 ## Paths for tools
@@ -103,13 +105,33 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #  rbenv global $LATEST_RUBY
 #fi
 
+# powerline-go tooling
+export GOPATH="/Users/$(whoami)/Dev/golang"
+export PATH="$GOPATH/bin:$PATH"
+function powerline_precmd() {
+  export PS1="$(powerline-shell-go zsh $? 2> /dev/null) "
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ -x "$(which powerline-shell-go)" ] ; then
+  install_powerline_precmd
+fi
+
 ##
 ## Local MacWookie Theme
 ##
 
-local ret_status="%(?:%{$fg_bold[yellow]%}$ :%{$fg_bold[red]%}$ %s)%{$reset_color%}"
-PROMPT='${ret_status}%{$fg_bold[yellow]%}%2~ $(git_prompt_info)%{$reset_color%}'
-RPROMPT=''
+#local ret_status="%(?:%{$fg_bold[yellow]%}$ :%{$fg_bold[red]%}$ %s)%{$reset_color%}"
+#PROMPT='${ret_status}%{$fg_bold[yellow]%}%2~ $(git_prompt_info)%{$reset_color%}'
+#RPROMPT=''
 #RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%} %T'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[blue]%}"
