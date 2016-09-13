@@ -1,9 +1,9 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 DEFAULT_USER="anton"
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -16,7 +16,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(zsh-256color git github osx brew python pip scala sbt ssh-agent docker go golang)
+plugins=(git github brew python pip scala sbt ssh-agent docker golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,6 +55,8 @@ export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export ANSIBLE_HOSTS="$HOME/Dev/tools/ansible"
 
+export GOPATH="$HOME/Dev/golang"
+export PATH="$GOPATH/bin:$PATH"
 
 # Maven Stuff
 JAVA_RAM="2G"
@@ -64,7 +66,7 @@ export MAVEN_OPTS="-Xmx${JAVA_RAM} -XX:MaxPermSize=${PERM_SIZE} -Xss512M"
 export MAVEN_OPTS_LOAD="-Xmx4G -XX:MaxPermSize=1G -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=18080 -Dcom.sun.management.jmxremote.authenticate=false -Djava.net.preferIPv4Stack=true"
 
 # Zalando STUPS stuff
-export CREDENTIALS_DIR="~/.berry/catalog"
+export CREDENTIALS_DIR="$HOME/.berry/catalog"
 
 ## GPG stuff
 #export GPG_AGENT_INFO_FILE=$HOME/.gpg-agent-info
@@ -106,10 +108,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #fi
 
 # powerline-go tooling
-export GOPATH="/Users/$(whoami)/Dev/golang"
-export PATH="$GOPATH/bin:$PATH"
 function powerline_precmd() {
-  export PS1="$(powerline-shell-go zsh $? 2> /dev/null)"
+  export PS1="$(powerline-go zsh $? 2> /dev/null)"
 }
 
 function install_powerline_precmd() {
@@ -140,7 +140,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=" "
 
 # fix tmux window rename
-#export DISABLE_AUTO_TITLE="true"
+export DISABLE_AUTO_TITLE="true"
 
 # fix colors
 export CLICOLOR=1
