@@ -16,7 +16,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github osx brew python pip scala sbt ssh-agent docker go golang)
+plugins=(zsh-256color git github osx brew python pip scala sbt ssh-agent docker go golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,7 +109,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH="/Users/$(whoami)/Dev/golang"
 export PATH="$GOPATH/bin:$PATH"
 function powerline_precmd() {
-  export PS1="$(powerline-shell-go zsh $? 2> /dev/null) "
+  export PS1="$(powerline-shell-go zsh $? 2> /dev/null)"
 }
 
 function install_powerline_precmd() {
