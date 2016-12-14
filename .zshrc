@@ -155,3 +155,6 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 
 # This enables fzf for zsh, see https://github.com/junegunn/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Enables autojump j command
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh

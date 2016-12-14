@@ -1,0 +1,35 @@
+"*":
+  core:
+    disabledPackages: [
+      "spell-check"
+      "about"
+      "autocomplete-snippets"
+      "autoflow"
+      "background-tips"
+      "bookmarks"
+      "file-icons"
+    ]
+    telemetryConsent: "limited"
+  editor:
+    backUpBeforeSaving: true
+    fontFamily: "Fira Code"
+    invisibles: {}
+  "exception-reporting":
+    userId: "e3fced64-97b0-8eef-ee6d-6828f2c81e97"
+  "file-icons":
+    coloured: false
+  "one-dark-ui":
+    layoutMode: "Compact"
+  "one-light-ui":
+    layoutMode: "Compact"
+  "seti-ui":
+    compactView: true
+    disableAnimations: true
+    font: "Default Atom Font"
+    themeColor: "Red"
+  "slim-dark-ui":
+    layoutMode: "Compact"
+  "tree-view":
+    squashDirectoryNames: true
+  welcome:
+    showOnStartup: false

@@ -1,0 +1,10 @@
+Ensime@0.39.0
+file-icons@1.7.25
+file-type-icons@1.3.3
+hyperclick@0.0.39
+intentions@1.1.2
+language-scala@1.1.8
+linter@1.11.18
+oceanic-next@0.4.0
+
+

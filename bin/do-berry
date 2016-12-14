@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e 
+
+APP="$1"
+
+# ensure path exists
+export CREDENTIALS_DIR="${HOME}/.berry/${APP}/"
+mkdir -p ${CREDENTIALS_DIR}
+
+mai login
+
+berry -a ${APP} -m zalando-stups-mint-677540357947-eu-central-1 --once ${CREDENTIALS_DIR} 
