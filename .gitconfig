@@ -1,0 +1,24 @@
+[push]
+	default = simple
+
+[user]
+	name = Anton Chebotaev
+	email = anton.chebotaev@gmail.com
+	signingkey = 822CABB29E4DE0B2
+
+[core]
+	excludesfile = /Users/otann/.gitignore_global
+	editor = /usr/bin/vim
+
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	l = log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
