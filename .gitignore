@@ -1,2 +1,4 @@
-# Nothing else matters
+# Ignore everything
 *
+
+!.*
