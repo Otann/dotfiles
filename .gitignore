@@ -10,3 +10,7 @@
 /.Trash
 /.s3cfg
 /.oh-my-zsh
+.CFUserTextEncoding
+.DS_Store
+.bash_history
+.zcompdump*
