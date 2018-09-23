@@ -52,7 +52,7 @@ export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
 
 # HOMES
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=$(/usr/libexec/java_home)
 export ANSIBLE_HOSTS="$HOME/Dev/tools/ansible"
 
 export GOPATH="$HOME/Dev/golang"
@@ -121,7 +121,7 @@ function install_powerline_precmd() {
   precmd_functions+=(powerline_precmd)
 }
 
-if [ -x "$(which powerline-shell-go)" ] ; then
+if [ -x "$(which powerline-go)" ] ; then
   install_powerline_precmd
 fi
 
