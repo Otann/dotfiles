@@ -1,4 +1,15 @@
 "*":
+  "bracket-matcher":
+    autocompleteCharacters: [
+      "()"
+      "[]"
+      "{}"
+      "\"\""
+      "“”"
+      "‘’"
+      "«»"
+      "‹›"
+    ]
   core:
     disabledPackages: [
       "spell-check"
@@ -7,21 +18,67 @@
       "autoflow"
       "background-tips"
       "bookmarks"
+      "Ensime"
+      "autocomplete-emojis"
+      "color-picker"
+      "language-gradle"
+      "language-scala"
       "file-icons"
+      "Parinfer"
+      "proto-repl"
+      "proto-repl-charts"
+      "proto-repl-sayid"
+      "tool-bar"
+    ]
+    packagesWithKeymapsDisabled: [
+      "lisp-paredit"
     ]
     telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "oceanic-next"
+    ]
   editor:
+    autoIndentOnPaste: false
     backUpBeforeSaving: true
     fontFamily: "Fira Code"
     invisibles: {}
+    scrollPastEnd: true
   "exception-reporting":
     userId: "e3fced64-97b0-8eef-ee6d-6828f2c81e97"
   "file-icons":
     coloured: false
+  "lisp-paredit":
+    enabled: false
+    indentationForms: [
+      "try"
+      "catch"
+      "finally"
+      "let"
+      "are"
+      "/^def.*/"
+      "fn"
+      "cond"
+      "if"
+      "if-let"
+      "for"
+      "/when.*/"
+      "testing"
+      "doseq"
+      "dotimes"
+      "loop"
+      "ns"
+    ]
+    strict: false
   "one-dark-ui":
     layoutMode: "Compact"
+    tabSizing: "Minimum"
   "one-light-ui":
     layoutMode: "Compact"
+  "proto-repl":
+    autoPrettyPrint: true
+    displayHelpText: false
+    leinPath: "/usr/local/bin/lein"
   "seti-ui":
     compactView: true
     disableAnimations: true
@@ -29,7 +86,19 @@
     themeColor: "Red"
   "slim-dark-ui":
     layoutMode: "Compact"
+  "status-bar":
+    fullWidth: false
+  "tool-bar":
+    fullWidth: false
+    iconSize: "16px"
   "tree-view":
     squashDirectoryNames: true
   welcome:
     showOnStartup: false
+".clojure.source":
+  editor:
+    autoIndent: false
+    autoIndentOnPaste: false
+    nonWordCharacters: "()\"':,;~@#$%^&{}[]`"
+    scrollPastEnd: true
+    tabLength: 1
