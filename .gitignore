@@ -1,4 +1,12 @@
 # Ignore everything
 *
 
+# Except dotfiles
 !.*
+
+# But not those
+/.zsh-update
+/.zsh_history
+/.Trash
+/.s3cfg
+/.oh-my-zsh
